@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"; style="background-color: #F3E8E8;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>TO-DO LIST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="styles.css">
+
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       
+       <style>
+        html, body {
+            font-family: "Poppins", sans-serif;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        li {
+            padding: 5px;
+            margin: 5px 0;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            width: 241px;
+        }
+        .abc {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px; /* Make the input box round */
+            width: 300px;
+            text-align: center;
+        }
+        .fa-trash{
+            margin-left: 10px; 
+            float: right;
+        }
+
+   
+    </style>
+</head>
+<body>
+    <h1  Font = "Poppins" style="margin-top:227px; margin-left: 40%;">TO-DO LIST</h1>
+
+    <p style="margin-left: 40%;">Get your to do list here...</p>
+<div>
+    <input type="text" id="username" placeholder="to_do_list" class="box" style="background-color: white;margin-left:35%;width:414px;text-align: center;">
+
+</div>
+<div style="margin-top: 20px;margin-left:40% ;">
+    <!-- <input type="text" id="username" placeholder="Add To_Do List" class="box" style="background-color:whitesmoke;height:10px;width:214px;text-align: center;"> -->
+    <input type="text" id="taskInput" placeholder="Add To-Do Item"  class="abc" />
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList"></ul>
+</div>
+<div style="margin-top: 20px;margin-left:40% ;">
+    <!-- <input type="text" id="username" placeholder="Add To_Do List" class="box" style="background-color:whitesmoke;height:10px;width:214px;text-align: center;"> -->
+    <input type="text" id="taskdInput" placeholder="Enter Task Name You want to Delete"  class="abc" style="background-color: pink;" />
+    <button onclick="DeleteTask()"> Delete</button>
+
+
+</div>
+
+<script>
+    
+
+    function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const taskValue = taskInput.value.trim();
+
+            if (taskValue) {
+                const taskList = document.getElementById('taskList');
+                const listItem = document.createElement('li');
+                listItem.textContent = taskValue;
+
+                 const deleteIcon = document.createElement('i');
+                deleteIcon.className = 'fas fa-trash';
+
+                 // deleteIcon.style ="align-item:right";
+                deleteIcon.onclick = function() {
+                    taskList.removeChild(listItem);
+                };
+
+                listItem.appendChild(deleteIcon);
+                taskList.appendChild(listItem);
+                taskInput.value = '';
+            }
+        }
+        function DeleteTask(){
+            const taskInput = document.getElementById('taskdInput');
+            const taskValue = taskInput.value.trim();
+            const listItems = document.querySelectorAll('taskList');
+const count = listItems.length;
+console.log(count); // or do whatever you want with the count variable
+
+
+        }
+
+
+</script>
+</div>
+</body>
+</html>
+
+<!-- design a website that should look iteresting to instructor  -->
